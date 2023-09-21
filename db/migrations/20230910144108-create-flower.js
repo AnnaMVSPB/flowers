@@ -1,7 +1,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Pies', {
+    await queryInterface.createTable('Flowers', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,10 +10,24 @@ module.exports = {
       },
       name: {
         type: Sequelize.TEXT,
-        unique: true,
+        allowNull: false,
       },
-      price: {
+      userId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+      },
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      url: {
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -25,7 +39,7 @@ module.exports = {
       },
     });
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Pies');
+  async down(queryInterface) {
+    await queryInterface.dropTable('Flowers');
   },
 };

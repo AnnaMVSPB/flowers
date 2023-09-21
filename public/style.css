@@ -1,0 +1,27 @@
+img{
+    width: 100%;
+    height: 100%;
+}
+.divimg{
+    width: 300px;
+    height: 350px;
+}
+.brand-logo{
+    margin-left: 20px;
+}
+img{
+    height: 500px !important;
+}
+.card-content{
+    height: 150px !important;
+}
+form{
+    border: solid ;
+    padding:20px
+}
+.formCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
